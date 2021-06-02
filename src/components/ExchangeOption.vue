@@ -1,6 +1,7 @@
 <template>
     <div>
         <select :value="code" @change="updateCode($event.target.value)">
+            <option :value="null">Select currency</option>
             <option v-for="{name, code} in currencies" :key="code" :value="code">{{ code }} - {{ name }}</option>
         </select>
         <input :value="amount" type="number" @input="updateValue($event.target.value)" step=".01" />

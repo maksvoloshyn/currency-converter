@@ -1,27 +1,29 @@
 <template>
     <div>
-        <currency-row
-            v-for="(option, index) in exchangeOptions"
-            :key="index"
-            :currencies="currencies"
-            v-bind="option"
-            @update:amount="updateBaseAmount($event, option.code)"
-            @update:code="updateCurrencyForExchange($event, index)"
-        ></currency-row>
+        <div v-for="(option, index) in exchangeOptions" :key="index">
+            <exchange-option
+                :currencies="currencies"
+                v-bind="option"
+                @update:amount="updateBaseAmount($event, option.code)"
+                @update:code="updateCurrencyForExchange($event, index)"
+            ></exchange-option>
+            <button v-show="canRemoveExchangeOption" @click="removeExchangeOption(index)">Remove</button>
+        </div>
+
+        <button @click="addExchangeOption">Add option</button>
     </div>
 </template>
 
 <script>
-    import CurrencyRow from '@/components/CurrencyRow';
-    // import {roundTo2Digits} from '@/utils';
+    import ExchangeOption from '@/components/ExchangeOption';
 
     const DEFAULT_EXCHANGE_CURRENCY = 'USD';
 
     export default {
-        name: 'currency-rows',
+        name: 'exchange-options',
 
         components: {
-            'currency-row': CurrencyRow,
+            'exchange-option': ExchangeOption,
         },
 
         props: {
@@ -56,8 +58,12 @@
             exchangeOptions() {
                 return this.currenciesForExchange.map(currency => ({
                     code: currency,
-                    amount: this.amountInBaseCurrency * this.rates[currency],
+                    amount: (currency && this.amountInBaseCurrency * this.rates[currency]) || 0,
                 }));
+            },
+
+            canRemoveExchangeOption() {
+                return this.exchangeOptions.length > 2;
             },
         },
 
@@ -70,6 +76,14 @@
 
             updateCurrencyForExchange(code, index) {
                 this.currenciesForExchange.splice(index, 1, code);
+            },
+
+            addExchangeOption() {
+                this.currenciesForExchange.push(null);
+            },
+
+            removeExchangeOption(index) {
+                this.currenciesForExchange.splice(index, 1);
             },
         },
     };

@@ -1,24 +1,24 @@
 <template>
     <div>
         <div>Converter</div>
-        <currency-rows
+        <exchange-options
             v-if="dataIsLoaded"
             :currencies="currencies"
             :rates="rates"
             :base-currency="base"
-        ></currency-rows>
+        ></exchange-options>
     </div>
 </template>
 
 <script>
     import {getAvailableRates} from '@/api/rates';
-    import CurrencyRows from '@/components/CurrencyRows';
+    import ExchangeOptions from '@/components/ExchangeOptions';
 
     export default {
         name: 'CurrencyConverter',
 
         components: {
-            'currency-rows': CurrencyRows,
+            'exchange-options': ExchangeOptions,
         },
 
         data() {
