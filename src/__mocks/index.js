@@ -19,5 +19,5 @@ export function mockedGet(url = '') {
 }
 
 export function isMocked() {
-    return window.localStorage.getItem('api_is_mocked') !== null;
+    return Boolean(window.localStorage.getItem('api_is_mocked'));
 }

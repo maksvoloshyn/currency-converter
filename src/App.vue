@@ -5,7 +5,7 @@
 </template>
 
 <script>
-    import CurrencyConverter from '@/components/CurrencyConverter';
+    import CurrencyConverter from '@/containers/CurrencyConverter';
 
     export default {
         name: 'App',
