@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <div>Converter</div>
+    <div class="w-full px-4">
+        <h1 class="font-semibold mb-7 text-2xl text-gray-700">Currency converter</h1>
         <exchange-options
             v-if="dataIsLoaded"
             :currencies="currencies"

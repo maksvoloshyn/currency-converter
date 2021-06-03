@@ -1,12 +1,8 @@
 <template>
-    <div>
-        <label>
-            <select :value="code" @change="onCurrencyChange($event.target.value)">
-                <option :value="null">Select currency</option>
-                <option v-for="{name, code} in currencies" :key="code" :value="code">{{ code }} - {{ name }}</option>
-            </select>
-        </label>
-    </div>
+    <select class="border px-3 py-2 rounded-lg bg-white" :value="code" @change="onCurrencyChange($event.target.value)">
+        <option :value="null">Select currency</option>
+        <option v-for="{name, code} in currencies" :key="code" :value="code">{{ code }} - {{ name }}</option>
+    </select>
 </template>
 
 <script>

@@ -1,6 +1,11 @@
 <template>
-    <div>
-        <currency-select :code="code" :currencies="currencies" @change="updateCode"></currency-select>
+    <div class="flex flex-col sm:flex-row w-full flex-auto">
+        <currency-select
+            class="sm:mr-2 mb-2 sm:mb-0"
+            :code="code"
+            :currencies="currencies"
+            @change="updateCode"
+        ></currency-select>
         <currency-input :disabled="!code" :amount="amount" @change="updateValue"></currency-input>
     </div>
 </template>

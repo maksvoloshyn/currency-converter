@@ -1,16 +1,25 @@
 <template>
-    <div>
-        <div v-for="(option, index) in exchangeOptions" :key="index">
+    <div class="flex flex-col sm:items-center">
+        <div v-for="(option, index) in exchangeOptions" :key="index" class="flex items-center py-3 w-11/12 sm:w-auto">
             <exchange-option
                 :currencies="currencies"
                 v-bind="option"
                 @update:amount="updateBaseAmount($event, option.code)"
                 @update:code="updateCurrencyForExchange($event, index)"
             ></exchange-option>
-            <button v-show="canRemoveExchangeOption" @click="removeExchangeOption(index)">Remove</button>
+            <button
+                v-show="canRemoveExchangeOption"
+                class="ml-3 p-2 rounded-full"
+                aria-label="Remove currency"
+                @click="removeExchangeOption(index)"
+            >
+                &#10006;
+            </button>
         </div>
 
-        <button @click="addExchangeOption">Add option</button>
+        <button class="bg-blue-600 border font-bold px-3 py-2 rounded-lg text-white mt-4" @click="addExchangeOption">
+            Add currency
+        </button>
     </div>
 </template>
 
