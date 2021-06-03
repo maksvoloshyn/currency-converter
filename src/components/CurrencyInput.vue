@@ -2,7 +2,6 @@
     <input
         class="border px-3 py-2 rounded-lg"
         :value="inputValue"
-        step=".01"
         @input="updateValue($event.target.value)"
         @focusin="toggleActiveState(true)"
         @blur="toggleActiveState(false)"

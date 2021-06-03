@@ -6,7 +6,12 @@
             :currencies="currencies"
             @change="updateCode"
         ></currency-select>
-        <currency-input :disabled="!code" :amount="amount" @change="updateValue"></currency-input>
+        <currency-input
+            :disabled="!code"
+            :amount="amount"
+            :aria-label="`Amount of ${code}`"
+            @change="updateValue"
+        ></currency-input>
     </div>
 </template>
 
@@ -15,7 +20,7 @@
     import CurrencySelect from '@/components/CurrencySelect';
 
     export default {
-        name: 'CurrencyRow',
+        name: 'currency-row',
 
         components: {
             'currency-input': CurrencyInput,

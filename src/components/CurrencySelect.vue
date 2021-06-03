@@ -1,5 +1,10 @@
 <template>
-    <select class="border px-3 py-2 rounded-lg bg-white" :value="code" @change="onCurrencyChange($event.target.value)">
+    <select
+        class="border px-3 py-2 rounded-lg bg-white"
+        aria-label="Currency selector"
+        :value="code"
+        @change="onCurrencyChange($event.target.value)"
+    >
         <option :value="null">Select currency</option>
         <option v-for="{name, code} in currencies" :key="code" :value="code">{{ code }} - {{ name }}</option>
     </select>
