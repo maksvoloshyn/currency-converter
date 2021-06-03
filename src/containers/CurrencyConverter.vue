@@ -40,9 +40,3 @@
         },
     };
 </script>
-
-<style scoped>
-    option + option {
-        display: none;
-    }
-</style>
