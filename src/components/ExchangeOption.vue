@@ -1,21 +1,20 @@
 <template>
     <div>
-        <select :value="code" @change="updateCode($event.target.value)">
-            <option :value="null">Select currency</option>
-            <option v-for="{name, code} in currencies" :key="code" :value="code">{{ code }} - {{ name }}</option>
-        </select>
+        <currency-select :code="code" :currencies="currencies" @change="updateCode"></currency-select>
         <currency-input :disabled="!code" :amount="amount" @change="updateValue"></currency-input>
     </div>
 </template>
 
 <script>
     import CurrencyInput from '@/components/CurrencyInput';
+    import CurrencySelect from '@/components/CurrencySelect';
 
     export default {
         name: 'CurrencyRow',
 
         components: {
             'currency-input': CurrencyInput,
+            'currency-select': CurrencySelect,
         },
 
         props: {
