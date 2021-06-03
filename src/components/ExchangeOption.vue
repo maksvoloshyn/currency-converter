@@ -4,13 +4,19 @@
             <option :value="null">Select currency</option>
             <option v-for="{name, code} in currencies" :key="code" :value="code">{{ code }} - {{ name }}</option>
         </select>
-        <input :value="amount" type="number" @input="updateValue($event.target.value)" step=".01" />
+        <currency-input :disabled="!code" :amount="amount" @change="updateValue"></currency-input>
     </div>
 </template>
 
 <script>
+    import CurrencyInput from '@/components/CurrencyInput';
+
     export default {
         name: 'CurrencyRow',
+
+        components: {
+            'currency-input': CurrencyInput,
+        },
 
         props: {
             currencies: {

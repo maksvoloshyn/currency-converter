@@ -1,15 +1,15 @@
-const defaultLocale = navigator.language;
+const formatterForSignificantDigits = new Intl.NumberFormat(navigator.language, {minimumSignificantDigits: 1});
+const formatterForFractionDigits = new Intl.NumberFormat(navigator.language, {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+});
 
-export function getUniqueId(prepend = '') {
-    return `${prepend}_${Math.random().toString(36).substr(2, 9)}`;
-}
+export function localiseExchangeValue(value) {
+    // If a result of the conversion couldn't be rounded up to one hundredth,
+    // the result will be return with all fractions
+    if (value < 0.005 && value > 0) {
+        return formatterForSignificantDigits.format(value);
+    }
 
-export function localiseExchangeValue(value, locale = defaultLocale) {
-    const formatter = new Intl.NumberFormat(locale);
-
-    return formatter.format(value);
-}
-
-export function roundTo2Digits(number) {
-    return Math.round((number + Number.EPSILON) * 100) / 100;
+    return formatterForFractionDigits.format(value);
 }
