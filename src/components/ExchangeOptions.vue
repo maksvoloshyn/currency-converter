@@ -100,5 +100,3 @@
         },
     };
 </script>
-
-<style scoped></style>
