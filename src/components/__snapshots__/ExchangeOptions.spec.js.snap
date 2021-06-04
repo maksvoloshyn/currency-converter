@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExchangeOptions renders correct template 1`] = `
+<div
+  class="flex flex-col sm:items-center"
+>
+  <div
+    class="flex items-center py-3 w-11/12 sm:w-auto"
+  >
+    <span>
+      EUR - 1
+    </span>
+     
+    <button
+      aria-label="Remove currency"
+      class="ml-3 p-2 rounded-full"
+      style="display: none;"
+    >
+      
+            ✖
+        
+    </button>
+  </div>
+  <div
+    class="flex items-center py-3 w-11/12 sm:w-auto"
+  >
+    <span>
+      USD - 1.2
+    </span>
+     
+    <button
+      aria-label="Remove currency"
+      class="ml-3 p-2 rounded-full"
+      style="display: none;"
+    >
+      
+            ✖
+        
+    </button>
+  </div>
+   
+  <button
+    class="bg-blue-600 border font-bold px-3 py-2 rounded-lg text-white mt-4"
+    id="add-currency"
+  >
+    
+        Add currency
+    
+  </button>
+</div>
+`;
