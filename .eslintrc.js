@@ -3,9 +3,12 @@ module.exports = {
 
     env: {
         node: true,
+        'jest/globals': true,
     },
 
     extends: ['plugin:vue/essential', 'eslint:recommended'],
+
+    plugins: ['jest'],
 
     parserOptions: {
         parser: 'babel-eslint',

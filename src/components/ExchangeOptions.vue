@@ -17,7 +17,11 @@
             </button>
         </div>
 
-        <button class="bg-blue-600 border font-bold px-3 py-2 rounded-lg text-white mt-4" @click="addExchangeOption">
+        <button
+            id="add-currency"
+            class="bg-blue-600 border font-bold px-3 py-2 rounded-lg text-white mt-4"
+            @click="addExchangeOption"
+        >
             Add currency
         </button>
     </div>
@@ -38,16 +42,17 @@
         props: {
             rates: {
                 type: Object,
-                default: () => ({}),
+                required: true,
             },
 
             baseCurrency: {
                 type: String,
+                default: 'EUR',
             },
 
             currencies: {
                 type: Array,
-                default: () => [],
+                required: true,
             },
         },
 
