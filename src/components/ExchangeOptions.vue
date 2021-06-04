@@ -83,9 +83,7 @@
 
         methods: {
             updateBaseAmount(value, code) {
-                const normalisedValue = typeof value === 'string' ? parseFloat(value) : value;
-
-                this.amountInBaseCurrency = normalisedValue / this.rates[code];
+                this.amountInBaseCurrency = value / this.rates[code];
             },
 
             updateCurrencyForExchange(code, index) {

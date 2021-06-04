@@ -101,32 +101,6 @@ describe('ExchangeOptions', () => {
                         amount: 330,
                     });
                 });
-
-                describe('and when emitted amount is a string', () => {
-                    it('converts string to a number and uses it as a base', async () => {
-                        const [optionA, optionB, optionC] = wrapper.findAllComponents(ExchangeOptionStub).wrappers;
-
-                        await optionB.vm.$emit('update:amount', '5.10abc');
-
-                        expect(optionA.props()).toEqual({
-                            currencies: currenciesMock,
-                            code: 'EUR',
-                            amount: 4.25,
-                        });
-
-                        expect(optionB.props()).toEqual({
-                            currencies: currenciesMock,
-                            code: 'USD',
-                            amount: 5.1,
-                        });
-
-                        expect(optionC.props()).toEqual({
-                            currencies: currenciesMock,
-                            code: 'UAH',
-                            amount: 140.25,
-                        });
-                    });
-                });
             });
 
             describe('when remove button is clicked', () => {

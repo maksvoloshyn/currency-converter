@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExchangeOption renders correct template 1`] = `
+<div
+  class="flex flex-col sm:flex-row w-full flex-auto"
+>
+  <span
+    class="sm:mr-2 mb-2 sm:mb-0"
+  >
+    EUR
+  </span>
+   
+  <span
+    aria-label="Amount of EUR"
+  >
+    12
+  </span>
+</div>
+`;

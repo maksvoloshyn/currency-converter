@@ -35,7 +35,7 @@
 
         methods: {
             updateValue(value) {
-                this.$emit('change', value);
+                this.$emit('change', parseFloat(value));
             },
 
             toggleActiveState(state) {
