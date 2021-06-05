@@ -1,6 +1,6 @@
 import {buildRequestUrl, get} from '@/api/utils';
 
-const baseUrl = 'https://openexchangerates.org/api/';
+const baseUrl = 'https://openexchangerates.org/api';
 const defaultParams = {app_id: process.env.VUE_APP_API_KEY};
 
 const requestUrl = buildRequestUrl(baseUrl, defaultParams);
