@@ -1,5 +1,4 @@
 module.exports = {
-    publicPath: process.env.NODE_ENV === 'production' ? '/currency-converter/' : '/',
     chainWebpack: config => {
         config.plugin('define').tap(([options]) => {
             return [
