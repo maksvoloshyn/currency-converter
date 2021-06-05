@@ -1,5 +1,5 @@
 import latestMock from '@/__mocks/latest';
-import symbolsMock from '@/__mocks/symbols';
+import symbolsMock from '@/__mocks/currencies';
 
 export function mockedGet(url = '') {
     let mockedValue;

@@ -64,7 +64,7 @@
             return {
                 pairs: [],
                 currenciesForExchange: [defaultExchangeCurrency, this.baseCurrency],
-                amountInBaseCurrency: this.rates[defaultExchangeCurrency],
+                amountInBaseCurrency: 1 / this.rates[defaultExchangeCurrency],
             };
         },
 

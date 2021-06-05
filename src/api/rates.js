@@ -19,12 +19,12 @@ export function getLatestRates(params = {}) {
     return get(url).then(({rates, base}) => ({rates, base}));
 }
 
-export function getSymbols() {
+export function getCurrencies() {
     const url = requestUrl('/currencies.json');
 
-    return get(url).then(({symbols}) => symbols);
+    return get(url);
 }
 
 export function getAvailableRates() {
-    return Promise.all([getSymbols(), getLatestRates()]).then(transformAvailableRates);
+    return Promise.all([getCurrencies(), getLatestRates()]).then(transformAvailableRates);
 }
