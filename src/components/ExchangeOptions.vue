@@ -57,6 +57,7 @@
         },
 
         data() {
+            // Default exchange pair is set to EUR - USD
             const defaultExchangeCurrency = this.rates[DEFAULT_EXCHANGE_CURRENCY]
                 ? DEFAULT_EXCHANGE_CURRENCY
                 : this.currencies[0].code;
