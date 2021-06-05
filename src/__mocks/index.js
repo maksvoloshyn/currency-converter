@@ -1,5 +1,5 @@
 import latestMock from '@/__mocks/latest';
-import symbolsMock from '@/__mocks/currencies';
+import currenciesMock from '@/__mocks/currencies';
 
 export function mockedGet(url = '') {
     let mockedValue;
@@ -8,8 +8,8 @@ export function mockedGet(url = '') {
         case url.includes('/latest'):
             mockedValue = latestMock;
             break;
-        case url.includes('/symbols'):
-            mockedValue = symbolsMock;
+        case url.includes('/currencies'):
+            mockedValue = currenciesMock;
             break;
         default:
             mockedValue = {};

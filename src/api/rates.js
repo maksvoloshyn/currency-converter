@@ -5,11 +5,11 @@ const defaultParams = {app_id: process.env.VUE_APP_API_KEY};
 
 const requestUrl = buildRequestUrl(baseUrl, defaultParams);
 
-function transformAvailableRates([symbols, {rates, base}]) {
+function transformAvailableRates([currencies, {rates, base}]) {
     return {
         rates,
         base,
-        currencies: Object.keys(rates).map(code => ({code, name: symbols[code]})),
+        currencies: Object.keys(rates).map(code => ({code, name: currencies[code]})),
     };
 }
 

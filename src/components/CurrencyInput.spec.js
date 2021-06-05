@@ -31,7 +31,7 @@ describe('CurrencyInput', () => {
 
     describe('when input gets focus', () => {
         beforeEach(() => {
-            wrapper.find('input').trigger('focusin');
+            wrapper.find('input').trigger('focus');
         });
 
         describe('and parent sets a new amount', () => {

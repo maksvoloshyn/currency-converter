@@ -3,7 +3,7 @@
         class="border px-3 py-2 rounded-lg"
         :value="inputValue"
         @input="updateValue($event.target.value)"
-        @focusin="toggleActiveState(true)"
+        @focus="toggleActiveState(true)"
         @blur="toggleActiveState(false)"
     />
 </template>
