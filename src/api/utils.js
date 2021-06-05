@@ -15,5 +15,5 @@ export function buildRequestUrl(baseUrl, defaultParams) {
 }
 
 export function get(url) {
-    return isMocked() ? mockedGet(url) : fetch(url).then(response => response.json());
+    return isMocked() ? mockedGet(url) : fetch(url, {mode: 'no-cors'}).then(response => response.json());
 }

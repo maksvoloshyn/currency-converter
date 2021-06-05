@@ -1,4 +1,7 @@
 module.exports = {
+    devServer: {
+        https: true,
+    },
     chainWebpack: config => {
         config.plugin('define').tap(([options]) => {
             return [

@@ -30,7 +30,7 @@
 <script>
     import ExchangeOption from '@/components/ExchangeOption';
 
-    const DEFAULT_EXCHANGE_CURRENCY = 'USD';
+    const DEFAULT_EXCHANGE_CURRENCY = 'EUR';
 
     export default {
         name: 'exchange-options',
@@ -47,7 +47,7 @@
 
             baseCurrency: {
                 type: String,
-                default: 'EUR',
+                default: 'USD',
             },
 
             currencies: {
@@ -63,8 +63,8 @@
 
             return {
                 pairs: [],
-                currenciesForExchange: [this.baseCurrency, defaultExchangeCurrency],
-                amountInBaseCurrency: 1,
+                currenciesForExchange: [defaultExchangeCurrency, this.baseCurrency],
+                amountInBaseCurrency: this.rates[defaultExchangeCurrency],
             };
         },
 

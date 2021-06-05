@@ -25,7 +25,7 @@
             return {
                 rates: {},
                 currencies: [],
-                base: 'EUR',
+                base: null,
                 dataIsLoaded: false,
             };
         },
