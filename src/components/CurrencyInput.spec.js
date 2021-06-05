@@ -31,7 +31,7 @@ describe('CurrencyInput', () => {
 
     describe('when input gets focus', () => {
         beforeEach(() => {
-            wrapper.find('input').trigger('focus');
+            wrapper.find('input').element.focus();
         });
 
         describe('and parent sets a new amount', () => {
@@ -40,7 +40,7 @@ describe('CurrencyInput', () => {
                 await wrapper.setProps({amount: 15});
             });
 
-            it('keeps current value of the input', async () => {
+            it('keeps current value of the input', () => {
                 expect(wrapper.element.value).toBe('15a');
             });
 

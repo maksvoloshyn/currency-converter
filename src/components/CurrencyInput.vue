@@ -24,17 +24,19 @@
         data() {
             return {
                 isInputActive: false,
+                interactionValue: '',
             };
         },
 
         computed: {
             inputValue() {
-                return this.isInputActive ? this.$el.value : localiseExchangeValue(this.amount);
+                return this.isInputActive ? this.interactionValue : localiseExchangeValue(this.amount);
             },
         },
 
         methods: {
             updateValue(value) {
+                this.interactionValue = value;
                 this.$emit('change', parseFloat(value));
             },
 
