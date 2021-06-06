@@ -1,5 +1,11 @@
+jest.mock('@/utils', () => ({
+    localiseExchangeValue: jest.fn().mockImplementation(value => value),
+    parseFormattedNumber: jest.fn().mockImplementation(value => value),
+}));
+
 import {shallowMount} from '@vue/test-utils';
 import CurrencyInput from '@/components/CurrencyInput';
+import {parseFormattedNumber, localiseExchangeValue} from '@/utils';
 
 function factory() {
     return shallowMount(CurrencyInput, {
@@ -23,8 +29,10 @@ describe('CurrencyInput', () => {
 
     describe('when input element emits `input` event', () => {
         it('emits `change` event with a given value', async () => {
+            parseFormattedNumber.mockReturnValue(15);
             await wrapper.find('input').setValue('15');
 
+            expect(parseFormattedNumber).toHaveBeenCalledWith('15');
             expect(wrapper.emitted('change')[0][0]).toBe(15);
         });
     });
@@ -36,6 +44,7 @@ describe('CurrencyInput', () => {
 
         describe('and parent sets a new amount', () => {
             beforeEach(async () => {
+                localiseExchangeValue.mockReturnValue('15.00');
                 await wrapper.find('input').setValue('15a');
                 await wrapper.setProps({amount: 15});
             });

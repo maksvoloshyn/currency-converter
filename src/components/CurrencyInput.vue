@@ -9,7 +9,7 @@
 </template>
 
 <script>
-    import {localiseExchangeValue} from '@/utils';
+    import {localiseExchangeValue, parseFormattedNumber} from '@/utils';
 
     export default {
         name: 'currency-input',
@@ -24,20 +24,31 @@
         data() {
             return {
                 isInputActive: false,
-                interactionValue: '',
+                inputValue: '',
             };
         },
 
         computed: {
-            inputValue() {
-                return this.isInputActive ? this.interactionValue : localiseExchangeValue(this.amount);
+            isInputActiveAndAmount() {
+                return [this.isInputActive, this.amount];
+            },
+        },
+
+        watch: {
+            isInputActiveAndAmount: {
+                handler([isInputActive, amount]) {
+                    if (!isInputActive) {
+                        this.inputValue = localiseExchangeValue(amount);
+                    }
+                },
+                immediate: true,
             },
         },
 
         methods: {
             updateValue(value) {
-                this.interactionValue = value;
-                this.$emit('change', parseFloat(value));
+                this.inputValue = value;
+                this.$emit('change', parseFormattedNumber(value));
             },
 
             toggleActiveState(state) {
