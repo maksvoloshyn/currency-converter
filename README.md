@@ -10,7 +10,10 @@
 ### Possible improvements
 
 * Scheduled fetch of available rates in case of their frequent update
-* Define formatting rules for specific currencies like BTC, XAU 
+* Define formatting rules for specific currencies like BTC, XAU
+* Test format behaviour for various locations
+* Add translations
+* Test accessibility 
 * Better design
 * Typeahead component for currency selection
 * Error states
